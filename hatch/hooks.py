@@ -5,6 +5,30 @@ app_description = "booking"
 app_email = "vgmoulis24@gmail.com"
 app_license = "mit"
 
+fixtures = [
+    {
+        "dt": "Role",
+        "filters": [
+            ["name", "in", [
+                "Hatch Member",
+                "Front Desk Staff",
+                "Space Manager"
+            ]]
+        ]
+    },
+    {
+        "dt": "Custom DocPerm",
+        "filters": [
+            ["role", "in", [
+                "Hatch Member",
+                "Front Desk Staff",
+                "Space Manager"
+            ]]
+        ]
+    }
+]
+
+
 # Apps
 # ------------------
 

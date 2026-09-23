@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-09-22 15:33:26.287202",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "plan_name",
+  "monthly_fee",
+  "column_break_nyqt",
+  "allowed_resource_types",
+  "guest_passes_included"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "plan_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plan Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "monthly_fee",
+   "fieldtype": "Currency",
+   "label": "Monthly Fee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nyqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "allowed_resource_types",
+   "fieldtype": "Check",
+   "label": "Allowed Resource Types",
+   "options": "Booking",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "guest_passes_included",
+   "fieldtype": "Int",
+   "label": "Guest Passes Included"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-22 16:46:07.262349",
+ "modified_by": "Administrator",
+ "module": "Hatch",
+ "name": "Membership Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Hatch Member"
+  },
+  {
+   "read": 1,
+   "role": "Front Desk Staff"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Space Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

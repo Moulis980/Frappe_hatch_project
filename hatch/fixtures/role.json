@@ -1,0 +1,41 @@
+[
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "home_page": null,
+  "is_custom": 0,
+  "modified": "2026-09-22 16:42:58.038101",
+  "name": "Hatch Member",
+  "restrict_to_domain": null,
+  "role_name": "Hatch Member",
+  "two_factor_auth": 0
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "home_page": null,
+  "is_custom": 0,
+  "modified": "2026-09-22 16:43:12.656219",
+  "name": "Front Desk Staff",
+  "restrict_to_domain": null,
+  "role_name": "Front Desk Staff",
+  "two_factor_auth": 0
+ },
+ {
+  "desk_access": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Role",
+  "home_page": null,
+  "is_custom": 0,
+  "modified": "2026-09-22 16:43:27.680025",
+  "name": "Space Manager",
+  "restrict_to_domain": null,
+  "role_name": "Space Manager",
+  "two_factor_auth": 0
+ }
+]

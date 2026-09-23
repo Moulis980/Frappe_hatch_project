@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-09-22 15:54:37.820393",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "manager_email",
+  "pending_confirmation_expiry_hours",
+  "column_break_ynrl",
+  "cancellation_window_hours",
+  "waitlist_enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "manager_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Manager Email",
+   "reqd": 1
+  },
+  {
+   "default": "2",
+   "fieldname": "pending_confirmation_expiry_hours",
+   "fieldtype": "Int",
+   "label": "Pending Confirmation Expiry Hours"
+  },
+  {
+   "fieldname": "column_break_ynrl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "4",
+   "fieldname": "cancellation_window_hours",
+   "fieldtype": "Int",
+   "label": "Cancellation Window Hours"
+  },
+  {
+   "default": "1",
+   "fieldname": "waitlist_enabled",
+   "fieldtype": "Check",
+   "label": "Waitlist Enabled"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-22 15:56:43.977069",
+ "modified_by": "Administrator",
+ "module": "Hatch",
+ "name": "Hatch Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
