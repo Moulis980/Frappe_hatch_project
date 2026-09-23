@@ -28,6 +28,18 @@ fixtures = [
     }
 ]
 
+permission_query_conditions = {"Booking": "hatch.permission.booking_query"}
+
+after_install = "hatch.install.after_install"
+
+# doc_events = {
+#     "*": {
+#         "on_update": "hatch.audit.log_change",
+#         "on_submit": "hatch.audit.log_change",
+#         "on_cancel": "hatch.audit.log_change",
+#     }
+# }
+
 
 # Apps
 # ------------------
