@@ -124,3 +124,29 @@ def get_live_availability(
         "occupied_seats": existing_headcount,
         "free_seats": max(free_seats, 0)
     }
+    
+@frappe.whitelist()
+def cancel_booking(booking_name, cancellation_reason):
+    booking = frappe.get_doc("Booking", booking_name)
+    
+    if booking.status == "Cancelled":
+        frappe.throw("Booking is already cancelled")
+        
+    booking.cancel()
+    
+    return  {
+        "status": "Success",
+        "message": f"Booking {booking_name} has been cancelled for reason {cancellation_reason}"
+    }
+    
+@frappe.whitelist()
+def reassign_booking(booking_name, new_member):
+    booking = frappe.get_doc("Booking", booking_name)
+    
+    booking.member = new_member
+    booking.save()
+    
+    return {
+        "status": "Success",
+        "message": f"Booking has been reassigned to new member {new_member}"
+    }
