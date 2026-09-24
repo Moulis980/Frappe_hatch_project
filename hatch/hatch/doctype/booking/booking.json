@@ -135,6 +135,7 @@
   {
    "fieldname": "total_amount",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Total Amount",
    "read_only": 1
   },
@@ -161,7 +162,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-09-23 15:22:19.841374",
+ "modified": "2026-09-24 17:33:51.681442",
  "modified_by": "Administrator",
  "module": "Hatch",
  "name": "Booking",
