@@ -40,6 +40,10 @@ after_install = "hatch.install.after_install"
 #     }
 # }
 
+scheduler_events = {
+    "all": "hatch.api.release_expired_holds"
+}
+
 
 # Apps
 # ------------------

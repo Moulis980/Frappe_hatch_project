@@ -150,3 +150,49 @@ def reassign_booking(booking_name, new_member):
         "status": "Success",
         "message": f"Booking has been reassigned to new member {new_member}"
     }
+    
+import requests
+def send_webhook(booking_name):
+    
+    settings = frappe.get_doc("Hatch Settings")
+    if not settings.webhook_url:
+        return
+    doc = frappe.get_doc("Booking", booking_name)
+    
+    payload = {
+        "event": "booking_confirmation",
+        "booking": doc.name,
+        "amount": doc.total_amount
+    }
+    try:
+        r = requests.post(settings.webhook_url, json=payload, timeout=5)
+        r.raise_for_status()
+    except Exception as e:
+        frappe.log_error(f"Webhook failed: {e}", "Webhook Error")
+        
+
+def release_expired_holds():
+    run_key = (f"release_holds:{frappe.utils.now_datetime().strftime('%Y%m%d%H')}")
+    
+    if frappe.cache().get_value(run_key):
+        return
+    frappe.cache().set_value(run_key, True, expires_in_sec=3600)
+    settings = frappe.get_single("Hatch Settings")
+    expiry_hours = settings.pending_confirmation_expiry_hours or 2
+    cutoff = frappe.utils.add_to_date(frappe.utils.now_datetime(),hours=-expiry_hours)
+    expired_bookings = frappe.get_all(
+        "Booking",
+        filters={
+            "status": "Pending Confirmation",
+            "creation": ["<=",cutoff]
+        },
+        pluck="name"
+    )
+    for booking_name in expired_bookings:
+        frappe.db.set_value(
+            "Booking",
+            booking_name,
+            "status",
+            "Cancelled",
+            update_modified=True
+        )

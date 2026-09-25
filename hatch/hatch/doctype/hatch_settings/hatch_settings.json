@@ -10,7 +10,8 @@
   "pending_confirmation_expiry_hours",
   "column_break_ynrl",
   "cancellation_window_hours",
-  "waitlist_enabled"
+  "waitlist_enabled",
+  "webhook_url"
  ],
  "fields": [
   {
@@ -41,13 +42,18 @@
    "fieldname": "waitlist_enabled",
    "fieldtype": "Check",
    "label": "Waitlist Enabled"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook Url"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-09-22 15:56:43.977069",
+ "modified": "2026-09-25 14:04:52.116887",
  "modified_by": "Administrator",
  "module": "Hatch",
  "name": "Hatch Settings",

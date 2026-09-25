@@ -4,6 +4,9 @@ from frappe.utils import flt, get_datetime
 
 
 class Booking(Document):
+    
+    def before_print(self,settings=None):
+        self.print_summary = f"{self.member} - {self.resource} on {self.booking_date}"
 
     def validate(self):
         self.validate_time()
@@ -117,12 +120,18 @@ class Booking(Document):
 
         frappe.enqueue(
             method=send_booking_confirmation,
+            queue="default",
+            enqueue_after_commit=True,
+            booking_name=self.name
+        )
+        
+        frappe.enqueue(
+            method="hatch.api.send_webhook",
             queue="short",
             enqueue_after_commit=True,
             booking_name=self.name
         )
-
-
+        
     def on_cancel(self):
         self.status = "Cancelled"
 
